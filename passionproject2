@@ -1,0 +1,25 @@
+entity Trip {
+    startDate LocalDate required,
+    endDate LocalDate required
+}
+
+entity Location {
+    name String required,
+	streetAddress String required,
+	postalCode String required,
+	city String required,
+	stateProvince String required,
+    country String required,
+    visited Boolean required
+}
+
+entity TripLocation {
+}
+
+relationship OneToMany {
+    Location{triplocation} to TripLocation{location},
+    Trip{triplocation} to TripLocation{trip}
+}
+
+service all with serviceImpl
+

@@ -1,0 +1,25 @@
+{
+  "passionProject2App": {
+    "tripLocation": {
+      "home": {
+        "title": "Trip Locations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Trip Location",
+        "createOrEditLabel": "Create or edit a Trip Location",
+        "notFound": "No Trip Locations found"
+      },
+      "created": "A new Trip Location is created with identifier {{ param }}",
+      "updated": "A Trip Location is updated with identifier {{ param }}",
+      "deleted": "A Trip Location is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Trip Location {{ id }}?"
+      },
+      "detail": {
+        "title": "Trip Location"
+      },
+      "id": "ID",
+      "location": "Location",
+      "trip": "Trip"
+    }
+  }
+}

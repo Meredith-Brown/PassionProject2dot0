@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20220418172448",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "trip",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Trip",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tripLocation",
+      "otherEntityRelationshipName": "trip",
+      "relationshipName": "triplocation",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

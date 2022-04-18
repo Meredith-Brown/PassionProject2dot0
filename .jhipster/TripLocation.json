@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220418172450",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "trip_location",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TripLocation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "triplocation",
+      "relationshipName": "location",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "trip",
+      "otherEntityRelationshipName": "triplocation",
+      "relationshipName": "trip",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

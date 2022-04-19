@@ -65,7 +65,8 @@ function Home() {
             </Alert>
           </div>
         )}
-          <div>
+          <p>HOME MAP</p>
+          <div className="map-container">
             {scriptLoaded && (
               <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
             )}

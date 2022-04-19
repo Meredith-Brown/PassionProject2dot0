@@ -1,5 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css';
 import './app.scss';
+import 'app/modules/home/Map.scss'
 import 'app/config/dayjs.ts';
 
 import React, { useEffect, useState } from 'react';
@@ -61,17 +62,14 @@ function App() {
         </ErrorBoundary>
         <div className="container-fluid view-container" id="app-view-container">
           <Card className="jh-card">
-          {scriptLoaded && (
-                                      <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
-                                  )}
-          <p>Meredith</p>
-          <div className="map-container">
-              {scriptLoaded && (
-                  <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
-              )}
-          </div>
-                    <p>Meredith</p>
-                    <div className="container-fluid view-container" id="app-view-container">
+              <p>MAP</p>
+              <div className="map-container">
+                  {scriptLoaded && (
+                      <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
+                  )}
+              </div>
+                    <p>MAP</p>
+                    <div className="container-fluid view-container" id="map-container_map">
                         {scriptLoaded && (
                             <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
                         )}

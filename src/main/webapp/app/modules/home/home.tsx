@@ -24,23 +24,30 @@ function Home() {
 
   return (
     <Row>
-      <Col md="3" className="pad">
+      <Col md="9" className="pad">
         <span className="hipster rounded" />
+        <div className="map-container">
+           {scriptLoaded && (
+              <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
+           )}
+        </div>
       </Col>
-      <Col md="9">
-        <h2>
-          <Translate contentKey="home.title">Welcome, Java Hipster!</Translate>
-        </h2>
-        <p className="lead">
-          <Translate contentKey="home.subtitle">This is your homepage</Translate>
-        </p>
+      <Col md="3">
+      <p>My Trips</p>
+      <p>My Locations</p>
+{/*         <h2> */}
+{/*           <Translate contentKey="home.title">Welcome, Java Hipster!</Translate> */}
+{/*         </h2> */}
+{/*         <p className="lead"> */}
+{/*           <Translate contentKey="home.subtitle">This is your homepage</Translate> */}
+{/*         </p> */}
         {account?.login ? (
           <div>
-            <Alert color="success">
-              <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}>
-                You are logged in as user {account.login}.
-              </Translate>
-            </Alert>
+{/*             <Alert color="success"> */}
+{/*               <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}> */}
+{/*                 You are logged in as user {account.login}. */}
+{/*               </Translate> */}
+{/*             </Alert> */}
           </div>
         ) : (
           <div>
@@ -65,12 +72,6 @@ function Home() {
             </Alert>
           </div>
         )}
-          <p>HOME MAP</p>
-          <div className="map-container">
-            {scriptLoaded && (
-              <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
-            )}
-          </div>
       </Col>
     </Row>
   );

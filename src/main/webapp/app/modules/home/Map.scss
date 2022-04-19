@@ -1,8 +1,9 @@
 .map-container {
+  position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   overflow-x: visible;
   overflow-y: visible;
-  height: 60vh;
-  width: 80%;
+  height: 80vh;
+  width: 100%;
 }

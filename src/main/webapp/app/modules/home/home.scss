@@ -9,13 +9,15 @@ Main page styles
 //   background-size: contain;
 // }
 
-.map-container {
-  display: flex;
-  justify-content: center;
-  overflow: scroll;
-  &__map {
-    height: 60vh;
-    width: 80%;
-    overflow: scroll;
-  }
-}
+// .map-container {
+//   position: relative
+//   display: flex;
+//   justify-content: center;
+//   overflow: scroll;
+//   &__map {
+//     height: 1000px;
+//     width: 3000px;
+//     overflow: scroll;
+//   }
+// }
+// delete this??? ^^^

@@ -26,7 +26,7 @@ const Map: React.FC<IMap> = ({mapType, mapTypeControl = false}) => {
 
     const defaultMapStart = ():void => {
       const defaultAddress = new google.maps.LatLng(39.746, -75.549);
-      initMap(5, defaultAddress);
+      initMap(7, defaultAddress);
     };
 
     const initMap = (zoomLevel: number, address: GoogleLatLng): void => {

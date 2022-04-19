@@ -2,7 +2,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './app.scss';
 import 'app/config/dayjs.ts';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from 'reactstrap';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -17,16 +17,43 @@ import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import { AUTHORITIES } from 'app/config/constants';
 import AppRoutes from 'app/routes';
+import Map from "app/modules/home/Map";
+import { loadMapApi } from 'app/modules/home/GoogleMapsUtils'; // re-add .ts? // longer path?
 
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
-export const App = () => {
+// export const App = () => {
+function App() {
   const dispatch = useAppDispatch();
+  const account = useAppSelector(state => state.authentication.account);
+    const [scriptLoaded, setScriptLoaded] = useState(false);
 
   useEffect(() => {
+    const googleMapScript = loadMapApi();
+        googleMapScript.addEventListener('load', function () {
+          setScriptLoaded(true);
+        });
     dispatch(getSession());
     dispatch(getProfile());
   }, []);
+
+
+
+
+
+// export const Home = () => {
+// function Home() {
+//   const account = useAppSelector(state => state.authentication.account);
+//   const [scriptLoaded, setScriptLoaded] = useState(false);
+
+//   useEffect( () => {
+//     const googleMapScript = loadMapApi();
+//     googleMapScript.addEventListener('load', function () {
+//       setScriptLoaded(true);
+//     })
+//   }, []);
+
+
 
   const currentLocale = useAppSelector(state => state.locale.currentLocale);
   const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
@@ -51,6 +78,12 @@ export const App = () => {
           />
         </ErrorBoundary>
         <div className="container-fluid view-container" id="app-view-container">
+                              <p>Meredith</p>
+                                        <div className="map-container">
+                                          {scriptLoaded && (
+                                            <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
+                                          )}
+                                        </div>
           <Card className="jh-card">
             <ErrorBoundary>
               <AppRoutes />

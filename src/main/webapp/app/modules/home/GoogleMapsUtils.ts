@@ -1,5 +1,5 @@
 export const loadMapApi = () => {
-    const mapsURL = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBYsci5g4Dse2-sVg1gIMgo6VNRbdiTTn8&libraries=places&language=en&v=quarterly';
+    const mapsURL =
     const scripts = document.getElementsByTagName('script');
 
     for (let i = 0; i < scripts.length; i++) {
@@ -7,6 +7,8 @@ export const loadMapApi = () => {
             return scripts[i];
         }
     }
+
+//     if (typeof google === 'object' && typeof google.maps === 'object') {...}
 
     const googleMapScript = document.createElement('script');
     googleMapScript.src = mapsURL;

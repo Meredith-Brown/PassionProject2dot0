@@ -18,7 +18,7 @@ import ErrorBoundary from 'app/shared/error/error-boundary';
 import { AUTHORITIES } from 'app/config/constants';
 import AppRoutes from 'app/routes';
 import Map from "app/modules/home/Map";
-import { loadMapApi } from 'app/modules/home/GoogleMapsUtils'; // re-add .ts? // longer path?
+import { loadMapApi } from 'app/modules/home/GoogleMapsUtils';
 
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
@@ -36,24 +36,6 @@ function App() {
     dispatch(getSession());
     dispatch(getProfile());
   }, []);
-
-
-
-
-
-// export const Home = () => {
-// function Home() {
-//   const account = useAppSelector(state => state.authentication.account);
-//   const [scriptLoaded, setScriptLoaded] = useState(false);
-
-//   useEffect( () => {
-//     const googleMapScript = loadMapApi();
-//     googleMapScript.addEventListener('load', function () {
-//       setScriptLoaded(true);
-//     })
-//   }, []);
-
-
 
   const currentLocale = useAppSelector(state => state.locale.currentLocale);
   const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
@@ -78,13 +60,22 @@ function App() {
           />
         </ErrorBoundary>
         <div className="container-fluid view-container" id="app-view-container">
-                              <p>Meredith</p>
-                                        <div className="map-container">
-                                          {scriptLoaded && (
-                                            <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
-                                          )}
-                                        </div>
           <Card className="jh-card">
+          {scriptLoaded && (
+                                      <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
+                                  )}
+          <p>Meredith</p>
+          <div className="map-container">
+              {scriptLoaded && (
+                  <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
+              )}
+          </div>
+                    <p>Meredith</p>
+                    <div className="container-fluid view-container" id="app-view-container">
+                        {scriptLoaded && (
+                            <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
+                        )}
+                    </div>
             <ErrorBoundary>
               <AppRoutes />
             </ErrorBoundary>

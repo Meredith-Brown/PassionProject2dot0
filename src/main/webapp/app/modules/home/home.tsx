@@ -10,6 +10,11 @@ import { useAppSelector } from 'app/config/store';
 import Map from "./Map";
 import { loadMapApi } from './GoogleMapsUtils'; // re-add .ts?
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import LocationHomePageDetail from "app/entities/location/location-homepage-detail";
+import LocationHomePage from "app/entities/location/location-homepage";
+
 // export const Home = () => {
 function Home() {
   const account = useAppSelector(state => state.authentication.account);
@@ -33,8 +38,18 @@ function Home() {
         </div>
       </Col>
       <Col md="3">
+      <div className="trip-location-list">
+          <LocationHomePage />
+      </div>
+      <Link to="/location/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
+                  <FontAwesomeIcon icon="plus" />
+                  &nbsp;
+                  <Translate contentKey="passionProject2App.location.home.createLabel">Add a New Location</Translate>
+                </Link>
       <p>My Trips</p>
       <p>My Locations</p>
+        <li>place 1</li>
+        <li>place 2</li>
 {/*         <h2> */}
 {/*           <Translate contentKey="home.title">Welcome, Java Hipster!</Translate> */}
 {/*         </h2> */}
@@ -78,30 +93,3 @@ function Home() {
 };
 
 export default Home;
-
-// // Initialize and add the map
-// function initMap(): void {
-//   // The location of Uluru
-//   const uluru = { lat: -25.344, lng: 131.031 };
-//   // The map, centered at Uluru
-//   const map = new google.maps.Map(
-//     document.getElementById("map") as HTMLElement,
-//     {
-//       zoom: 4,
-//       center: uluru,
-//     }
-//   );
-//
-//   // The marker, positioned at Uluru
-//   const marker = new google.maps.Marker({
-//     position: uluru,
-//     map: map,
-//   });
-// }
-//
-// declare global {
-//   interface Window {
-//     initMap: () => void;
-//   }
-// }
-// window.initMap = initMap;

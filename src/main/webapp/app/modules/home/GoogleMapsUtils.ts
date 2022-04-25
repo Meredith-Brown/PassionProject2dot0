@@ -1,5 +1,5 @@
 export const loadMapApi = () => {
-    const mapsURL = ;
+    const mapsURL = '';
     const scripts = document.getElementsByTagName('script');
 
     for (let i = 0; i < scripts.length; i++) {

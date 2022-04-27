@@ -47,9 +47,6 @@ function Home() {
                   <Translate contentKey="passionProject2App.location.home.createLabel">Add a New Location</Translate>
                 </Link>
       <p>My Trips</p>
-      <p>My Locations</p>
-        <li>place 1</li>
-        <li>place 2</li>
 {/*         <h2> */}
 {/*           <Translate contentKey="home.title">Welcome, Java Hipster!</Translate> */}
 {/*         </h2> */}

@@ -29,18 +29,7 @@ const LocationHomePage = (props: RouteComponentProps<{ url: string }>) => {
   return (
     <div>
       <h2 id="location-heading" data-cy="LocationHeading">
-        <Translate contentKey="passionProject2App.location.home.title">Locations</Translate>
-        <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
-            <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="passionProject2App.location.home.refreshListLabel">Refresh List</Translate>
-          </Button>
-          <Link to="/location/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
-            <FontAwesomeIcon icon="plus" />
-            &nbsp;
-            <Translate contentKey="passionProject2App.location.home.createLabel">Create new Location</Translate>
-          </Link>
-        </div>
+        <Translate contentKey="passionProject2App.location.home.title">My Locations</Translate>
       </h2>
       <div className="table-responsive">
         {locationList && locationList.length > 0 ? (
@@ -48,16 +37,7 @@ const LocationHomePage = (props: RouteComponentProps<{ url: string }>) => {
             <thead>
               <tr>
                 <th>
-                  <Translate contentKey="passionProject2App.location.id">ID</Translate>
-                </th>
-                <th>
                   <Translate contentKey="passionProject2App.location.name">Name</Translate>
-                </th>
-                <th>
-                  <Translate contentKey="passionProject2App.location.streetAddress">Street Address</Translate>
-                </th>
-                <th>
-                  <Translate contentKey="passionProject2App.location.postalCode">Postal Code</Translate>
                 </th>
                 <th>
                   <Translate contentKey="passionProject2App.location.city">City</Translate>
@@ -79,37 +59,14 @@ const LocationHomePage = (props: RouteComponentProps<{ url: string }>) => {
                 <tr key={`entity-${i}`} data-cy="entityTable">
                   <td>
                     <Button tag={Link} to={`/location/${location.id}`} color="link" size="sm">
-                      {location.id}
+                      {location.name}
                     </Button>
                   </td>
-                  <td>{location.name}</td>
-                  <td>{location.streetAddress}</td>
-                  <td>{location.postalCode}</td>
                   <td>{location.city}</td>
                   <td>{location.stateProvince}</td>
                   <td>{location.country}</td>
                   <td>{location.visited ? 'true' : 'false'}</td>
                   <td className="text-end">
-                    <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`/location/${location.id}`} color="info" size="sm" data-cy="entityDetailsButton">
-                        <FontAwesomeIcon icon="eye" />{' '}
-                        <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.view">View</Translate>
-                        </span>
-                      </Button>
-                      <Button tag={Link} to={`/location/${location.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
-                        <FontAwesomeIcon icon="pencil-alt" />{' '}
-                        <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.edit">Edit</Translate>
-                        </span>
-                      </Button>
-                      <Button tag={Link} to={`/location/${location.id}/delete`} color="danger" size="sm" data-cy="entityDeleteButton">
-                        <FontAwesomeIcon icon="trash" />{' '}
-                        <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.delete">Delete</Translate>
-                        </span>
-                      </Button>
-                    </div>
                   </td>
                 </tr>
               ))}
